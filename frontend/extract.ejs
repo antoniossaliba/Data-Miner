@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Extracted JSON | Data Miner</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Inter:400,600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inter", Arial, sans-serif;
+        margin: 0;
+        background: linear-gradient(120deg, #e0e7ff 0%, #f9f9f9 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .container {
+        max-width: 600px;
+        width: 95vw;
+        margin: 40px auto;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 48px 32px 36px 32px;
+        border-radius: 22px;
+        box-shadow: 0 8px 32px rgba(60, 60, 120, 0.16), 0 1.5px 8px #b8c6ff33;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+      h1 {
+        font-size: 2em;
+        font-weight: 700;
+        color: #2d3a5a;
+        margin-bottom: 18px;
+        letter-spacing: -1px;
+        z-index: 1;
+      }
+      pre {
+        width: 100%;
+        background: #f0f4ff;
+        color: #2d3a5a;
+        padding: 20px;
+        border-radius: 10px;
+        font-size: 1.02em;
+        overflow-x: auto;
+        box-shadow: 0 1px 4px #e0e7ff44;
+        margin-bottom: 20px;
+      }
+      .download-link {
+        color: #fff;
+        background: linear-gradient(90deg, #6b8cff 0%, #4f6edb 100%);
+        padding: 12px 28px;
+        border-radius: 8px;
+        font-weight: 600;
+        text-decoration: none;
+        font-size: 1.08em;
+        margin-bottom: 18px;
+        box-shadow: 0 2px 8px rgba(60, 60, 120, 0.1);
+        transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+        display: inline-block;
+      }
+      .download-link:hover,
+      .download-link:focus {
+        background: linear-gradient(90deg, #4f6edb 0%, #6b8cff 100%);
+        transform: translateY(-2px) scale(1.03);
+        box-shadow: 0 4px 16px #b8c6ff44;
+      }
+      .back-link {
+        color: #4f6edb;
+        text-decoration: underline;
+        font-size: 1em;
+        margin-top: 10px;
+        display: block;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Extracted JSON</h1>
+      <pre><%= JSON.stringify(jsonData, null, 2) %></pre>
+      <a href="/download-json" class="download-link" download>Download JSON</a>
+      <a href="/logged-in" class="back-link">← Back to Data Miner</a>
+    </div>
+  </body>
+</html>

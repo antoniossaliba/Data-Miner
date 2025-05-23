@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | Data Miner</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Inter:400,600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inter", Arial, sans-serif;
+        margin: 0;
+        background: linear-gradient(120deg, #e0e7ff 0%, #f9f9f9 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .container {
+        max-width: 420px;
+        width: 95vw;
+        margin: 40px auto;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 48px 32px 36px 32px;
+        border-radius: 22px;
+        box-shadow: 0 8px 32px rgba(60, 60, 120, 0.16), 0 1.5px 8px #b8c6ff33;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .container::before {
+        content: "";
+        position: absolute;
+        top: -60px;
+        right: -60px;
+        width: 160px;
+        height: 160px;
+        background: radial-gradient(circle, #6b8cff33 60%, transparent 100%);
+        z-index: 0;
+      }
+      .container::after {
+        content: "";
+        position: absolute;
+        bottom: -60px;
+        left: -60px;
+        width: 160px;
+        height: 160px;
+        background: radial-gradient(circle, #b8c6ff33 60%, transparent 100%);
+        z-index: 0;
+      }
+      h1 {
+        font-size: 2.1em;
+        font-weight: 700;
+        color: #2d3a5a;
+        margin-bottom: 8px;
+        letter-spacing: -1.5px;
+        z-index: 1;
+        text-shadow: 0 2px 8px #e0e7ff;
+      }
+      .subtitle {
+        color: #6b7a99;
+        font-size: 1.08em;
+        margin-bottom: 28px;
+        z-index: 1;
+        text-align: center;
+      }
+      label {
+        font-size: 1.09em;
+        color: #3d4a6a;
+        margin-bottom: 8px;
+        display: block;
+        font-weight: 500;
+        z-index: 1;
+      }
+      input[type="email"],
+      input[type="password"] {
+        width: 100%;
+        padding: 13px 15px;
+        font-size: 1.07em;
+        border: 1.7px solid #d3d8e8;
+        border-radius: 8px;
+        outline: none;
+        background: #f7faff;
+        margin-bottom: 16px;
+        transition: border 0.2s, box-shadow 0.2s;
+        box-shadow: 0 1px 4px #e0e7ff44;
+      }
+      input:focus {
+        border: 1.7px solid #6b8cff;
+        background: #f0f4ff;
+        box-shadow: 0 2px 8px #b8c6ff33;
+      }
+      button,
+      .google-btn {
+        width: 100%;
+        padding: 13px 0;
+        font-size: 1.09em;
+        font-weight: 600;
+        color: #fff;
+        background: linear-gradient(90deg, #6b8cff 0%, #4f6edb 100%);
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        box-shadow: 0 2px 8px rgba(60, 60, 120, 0.1);
+        transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+        z-index: 1;
+        margin-bottom: 12px;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+      }
+      button:hover,
+      .google-btn:hover,
+      button:focus,
+      .google-btn:focus {
+        background: linear-gradient(90deg, #4f6edb 0%, #6b8cff 100%);
+        transform: translateY(-2px) scale(1.03);
+        box-shadow: 0 4px 16px #b8c6ff44;
+      }
+      .google-btn {
+        background: #fff;
+        color: #2d3a5a;
+        border: 1.5px solid #d3d8e8;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        font-weight: 500;
+        margin-bottom: 18px;
+        transition: border 0.2s, box-shadow 0.2s, background 0.2s;
+      }
+      .google-btn img {
+        width: 22px;
+        height: 22px;
+        display: inline-block;
+      }
+      .switch-link {
+        color: #4f6edb;
+        text-decoration: underline;
+        cursor: pointer;
+        font-size: 1em;
+        margin-top: 8px;
+        background: none;
+        border: none;
+        padding: 0;
+        display: block;
+        text-align: center;
+      }
+      .divider {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #e0e7ff;
+        line-height: 0.1em;
+        margin: 18px 0 18px 0;
+        color: #b0b8d0;
+        font-size: 0.97em;
+      }
+      .divider span {
+        background: #fff;
+        padding: 0 12px;
+      }
+      @media (max-width: 600px) {
+        .container {
+          padding: 22px 4vw 18px 4vw;
+        }
+        h1 {
+          font-size: 1.3em;
+        }
+        .subtitle {
+          font-size: 0.98em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome</h1>
+      <div class="subtitle">Sign in to Data Miner</div>
+      <a href="/auth/google" class="google-btn" id="googleBtn">
+        <img
+          src="https://www.svgrepo.com/show/475656/google-color.svg"
+          alt="Google logo"
+        />
+        Continue with Google
+      </a>
+      <div class="divider"><span>or</span></div>
+      <form id="loginForm" autocomplete="off" method="POST" action="/login">
+        <label for="emailInput">Email</label>
+        <input
+          type="email"
+          id="emailInput"
+          name="email"
+          placeholder="you@email.com"
+          required
+        />
+        <label for="passwordInput">Password</label>
+        <input
+          type="password"
+          id="passwordInput"
+          name="password"
+          placeholder="Password"
+          required
+        />
+        <button type="submit" id="loginBtn">Login</button>
+      </form>
+      <a href="/register" class="switch-link" id="switchToRegister">
+        Don't have an account? Register
+      </a>
+      <a
+        href="/forgot-password"
+        class="switch-link"
+        id="forgotPasswordLink"
+        style="margin-top: 16px"
+      >
+        Forgot your password?
+      </a>
+    </div>
+  </body>
+</html>
